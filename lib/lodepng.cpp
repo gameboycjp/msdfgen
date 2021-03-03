@@ -28,6 +28,8 @@ The manual and changelog are in the header file "lodepng.h"
 Rename this file to lodepng.cpp to use it for C++, or to lodepng.c to use it for C.
 */
 
+#ifndef MSDFGEN_DLL
+
 #include "lodepng.h"
 
 #include <limits.h> /* LONG_MAX */
@@ -5990,3 +5992,5 @@ unsigned encode(const std::string& filename,
 #endif /* LODEPNG_COMPILE_PNG */
 } /* namespace lodepng */
 #endif /*LODEPNG_COMPILE_CPP*/
+
+#endif

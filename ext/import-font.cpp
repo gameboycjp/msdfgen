@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #include "import-font.h"
 
@@ -160,3 +161,5 @@ bool getKerning(double &output, FontHandle *font, int unicode1, int unicode2) {
 }
 
 }
+
+#endif

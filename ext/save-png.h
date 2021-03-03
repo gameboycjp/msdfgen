@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #pragma once
 
@@ -12,3 +13,5 @@ bool savePng(const BitmapConstRef<float, 1> &bitmap, const char *filename);
 bool savePng(const BitmapConstRef<float, 3> &bitmap, const char *filename);
 
 }
+
+#endif

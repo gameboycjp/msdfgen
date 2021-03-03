@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #include "save-png.h"
 
@@ -36,3 +37,5 @@ bool savePng(const BitmapConstRef<float, 3> &bitmap, const char *filename) {
 }
 
 }
+
+#endif

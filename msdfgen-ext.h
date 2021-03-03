@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #pragma once
 
@@ -21,3 +22,5 @@
 #include "ext/save-png.h"
 #include "ext/import-svg.h"
 #include "ext/import-font.h"
+
+#endif

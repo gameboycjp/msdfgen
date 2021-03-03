@@ -18,6 +18,9 @@
     <Filter Include="Source Dependencies">
       <UniqueIdentifier>{42db228a-5d46-439c-ad30-7595a74d635f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dynamic Library">
+      <UniqueIdentifier>{fae8b3e3-0a11-47e4-883c-caa114f82344}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\arithmetics.hpp">
@@ -105,6 +108,9 @@
     <ClInclude Include="core\estimate-sdf-error.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="dll_exports.h">
+      <Filter>Dynamic Library</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -178,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="core\estimate-sdf-error.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="dll_api.cpp">
+      <Filter>Dynamic Library</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

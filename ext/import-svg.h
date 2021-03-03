@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #pragma once
 
@@ -10,3 +11,5 @@ namespace msdfgen {
 bool loadSvgShape(Shape &output, const char *filename, int pathIndex = 0, Vector2 *dimensions = NULL);
 
 }
+
+#endif

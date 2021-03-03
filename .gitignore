@@ -19,3 +19,7 @@ render.png
 out/
 build/
 build_xcode/
+.vs/
+obj/
+CMakeFiles/
+CMakeCache.txt

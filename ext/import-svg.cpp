@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #define _USE_MATH_DEFINES
 #include "import-svg.h"
@@ -311,3 +312,5 @@ bool loadSvgShape(Shape &output, const char *filename, int pathIndex, Vector2 *d
 }
 
 }
+
+#endif

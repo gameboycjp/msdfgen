@@ -1,3 +1,4 @@
+#ifndef MSDFGEN_DLL
 
 #pragma once
 
@@ -27,3 +28,5 @@ bool loadGlyph(Shape &output, FontHandle *font, int unicode, double *advance = N
 bool getKerning(double &output, FontHandle *font, int unicode1, int unicode2);
 
 }
+
+#endif
