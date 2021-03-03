@@ -13,6 +13,8 @@ x64/
 *.suo
 *.VC.opendb
 *.VC.db
+*.so
+*.a
 bin/*.lib
 output.png
 render.png
