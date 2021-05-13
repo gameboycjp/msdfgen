@@ -30,6 +30,12 @@ steps:
     msbuildArchitecture: 'x64'
   condition: eq( variables['Agent.OS'], 'Windows_NT' )
 
+- task: CMake@1
+  inputs:
+    workingDirectory: 
+    cmakeArgs: 'CMakeLists.txt -G "Unix Makefiles"'
+  condition: eq( variables['Agent.OS'], 'Linux' )
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
