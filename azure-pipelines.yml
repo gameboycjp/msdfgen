@@ -6,8 +6,8 @@ strategy:
     linux:
       imageName: 'ubuntu-latest'
       sourceFolder: ''
-      sourceFile: 'libcrnlib.so'
-      targetFile: 'libcrnlib.so'
+      sourceFile: 'libmsdfgen.so'
+      targetFile: 'libmsdfgen.so'
       artifactName : 'linux_x64'
     windows:
       imageName: 'windows-latest'
