@@ -22,12 +22,10 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 file(GLOB_RECURSE msdfgen-core_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     "core/*.h"
     "core/*.hpp"
-    "dll_exports.h"
 )
 
 file(GLOB_RECURSE msdfgen-core_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     "core/*.cpp"
-	"dll_api.cpp"
 )
 
 file(GLOB_RECURSE msdfgen-ext_PUBLIC_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
@@ -44,12 +42,22 @@ file(GLOB_RECURSE msdfgen-ext_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     "lib/*.cpp"
 )
 
+file(GLOB_RECURSE msdfgen-shared_HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+    "dll_exports.h"
+)
+
+file(GLOB_RECURSE msdfgen-shared_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+	"dll_api.cpp"
+)
+
 include(folderize)
 folderize_sources(msdfgen-core_HEADERS ${CMAKE_SOURCE_DIR})
 folderize_sources(msdfgen-core_SOURCES ${CMAKE_SOURCE_DIR})
 folderize_sources(msdfgen-ext_PUBLIC_HEADERS ${CMAKE_SOURCE_DIR})
 folderize_sources(msdfgen-ext_PRIVATE_HEADERS ${CMAKE_SOURCE_DIR})
 folderize_sources(msdfgen-ext_SOURCES ${CMAKE_SOURCE_DIR})
+folderize_sources(msdfgen-shared_HEADERS ${CMAKE_SOURCE_DIR})
+folderize_sources(msdfgen-shared_SOURCES ${CMAKE_SOURCE_DIR})
 
 # Core library
 add_library(msdfgen-core ${msdfgen-core_SOURCES} ${msdfgen-core_HEADERS} "./msdfgen.h")
@@ -119,7 +127,7 @@ if(MSDFGEN_BUILD_STANDALONE)
 endif()
 
 if(MSDFGEN_BUILD_SHARED_LIBRARY)
-    add_library(msdfgen SHARED dll_api.cpp)
+    add_library(msdfgen SHARED ${msdfgen-shared_HEADERS} ${msdfgen-shared_SOURCES})
     target_compile_definitions(msdfgen PUBLIC MSDFGEN_BUILD_SHARED_LIBRARY)
     target_link_libraries(msdfgen PUBLIC msdfgen::msdfgen-core msdfgen::msdfgen-ext)
 endif()
