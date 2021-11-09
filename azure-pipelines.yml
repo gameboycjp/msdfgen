@@ -9,19 +9,20 @@ strategy:
       sourceFile: 'libmsdfgen.so'
       targetFile: 'libmsdfgen.so'
       cmakeArgs: -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
-      artifactName : 'android_ARMv7'
+      artifactName: 'android_ARMv7'
     linux:
       imageName: 'ubuntu-latest'
       sourceFolder: 'build/out/'
       sourceFile: 'libmsdfgen.so'
       targetFile: 'libmsdfgen.so'
-      artifactName : 'linux_x64'
+      artifactName: 'linux_x64'
     windows:
       imageName: 'windows-latest'
       sourceFolder: 'build/out/Release'
       sourceFile: 'msdfgen.dll'
       targetFile: 'msdfgen.dll'
-      artifactName : 'windows_x64'
+      cmakeArgs: -DMSVC_VERSION=1927
+      artifactName: 'windows_x64'
 
 pool:
   vmImage: $(imageName)

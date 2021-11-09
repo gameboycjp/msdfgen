@@ -1,8 +1,10 @@
 /Debug/
 /Release/
-/Release OpenMP/
 /Debug Library/
 /Release Library/
+/Debug DLL Library/
+/Release DLL Library/
+/Release OpenMP/
 /Release Library OpenMP/
 /x86/
 /x64/
