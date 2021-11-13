@@ -6,13 +6,6 @@
 
 using namespace msdfgen;
 
-template <int N>
-static void invertColor(const BitmapRef<float, N> &bitmap) {
-	const float *end = bitmap.pixels + N * bitmap.width*bitmap.height;
-	for (float *p = bitmap.pixels; p < end; ++p)
-		*p = 1.f - *p;
-}
-
 DLL_EXPORT Shape* DLL_API create_shape()
 {
 	Shape* shape = new Shape();
@@ -80,17 +73,6 @@ DLL_EXPORT void DLL_API shape_generateMSDF(float* pixels, int width, int height,
 	// and there's no documentation as to what the intent was.
 
 	generateMSDF(msdf, *shape, projection, range, generatorConfig);
-
-	// Get sign of signed distance outside bounds
-	// This was taken from main.cpp as a way to guess the expected orientation.
-	Shape::Bounds bounds = shape->getBounds();
-	Point2 p(bounds.l - (bounds.r - bounds.l) - 1, bounds.b - (bounds.t - bounds.b) - 1);
-	double distance = SimpleTrueShapeDistanceFinder::oneShotDistance(*shape, p);
-	if (distance >= 0) {
-		invertColor(msdf);
-	}
-	
-	// This call is where the errors are introduced, but it corrects the inversion.
 	distanceSignCorrection(msdf, *shape, projection, FILL_NONZERO);
 	msdfErrorCorrection(msdf, *shape, projection, range, postErrorCorrectionConfig);
 }
