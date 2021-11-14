@@ -75,7 +75,7 @@ DLL_EXPORT void DLL_API shape_generateMSDF(float* pixels, int width, int height,
 	MSDFGeneratorConfig generatorConfig;
 	MSDFGeneratorConfig postErrorCorrectionConfig(generatorConfig);
 	generatorConfig.errorCorrection.mode = ErrorCorrectionConfig::DISABLED;
-	postErrorCorrectionConfig.errorCorrection.distanceCheckMode = ErrorCorrectionConfig::CHECK_DISTANCE_AT_EDGE;
+	postErrorCorrectionConfig.errorCorrection.distanceCheckMode = ErrorCorrectionConfig::DO_NOT_CHECK_DISTANCE;
 	// TODO: Include edgeThreshold inside config.errorCorrection, as that feature is currently not implemented
 	// and there's no documentation as to what the intent was.
 
