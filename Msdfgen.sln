@@ -1,16 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Msdfgen", "Msdfgen.vcxproj", "{84BE2D91-F071-4151-BE12-61460464C494}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug DLL Library|x64 = Debug DLL Library|x64
+		Debug DLL Library|x86 = Debug DLL Library|x86
 		Debug Library|x64 = Debug Library|x64
 		Debug Library|x86 = Debug Library|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release DLL Library|x64 = Release DLL Library|x64
+		Release DLL Library|x86 = Release DLL Library|x86
 		Release Library OpenMP|x64 = Release Library OpenMP|x64
 		Release Library OpenMP|x86 = Release Library OpenMP|x86
 		Release Library|x64 = Release Library|x64
@@ -21,6 +25,10 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84BE2D91-F071-4151-BE12-61460464C494}.Debug DLL Library|x64.ActiveCfg = Debug DLL Library|x64
+		{84BE2D91-F071-4151-BE12-61460464C494}.Debug DLL Library|x64.Build.0 = Debug DLL Library|x64
+		{84BE2D91-F071-4151-BE12-61460464C494}.Debug DLL Library|x86.ActiveCfg = Debug DLL Library|Win32
+		{84BE2D91-F071-4151-BE12-61460464C494}.Debug DLL Library|x86.Build.0 = Debug DLL Library|Win32
 		{84BE2D91-F071-4151-BE12-61460464C494}.Debug Library|x64.ActiveCfg = Debug Library|x64
 		{84BE2D91-F071-4151-BE12-61460464C494}.Debug Library|x64.Build.0 = Debug Library|x64
 		{84BE2D91-F071-4151-BE12-61460464C494}.Debug Library|x86.ActiveCfg = Debug Library|Win32
@@ -29,6 +37,10 @@ Global
 		{84BE2D91-F071-4151-BE12-61460464C494}.Debug|x64.Build.0 = Debug|x64
 		{84BE2D91-F071-4151-BE12-61460464C494}.Debug|x86.ActiveCfg = Debug|Win32
 		{84BE2D91-F071-4151-BE12-61460464C494}.Debug|x86.Build.0 = Debug|Win32
+		{84BE2D91-F071-4151-BE12-61460464C494}.Release DLL Library|x64.ActiveCfg = Release DLL Library|x64
+		{84BE2D91-F071-4151-BE12-61460464C494}.Release DLL Library|x64.Build.0 = Release DLL Library|x64
+		{84BE2D91-F071-4151-BE12-61460464C494}.Release DLL Library|x86.ActiveCfg = Release DLL Library|Win32
+		{84BE2D91-F071-4151-BE12-61460464C494}.Release DLL Library|x86.Build.0 = Release DLL Library|Win32
 		{84BE2D91-F071-4151-BE12-61460464C494}.Release Library OpenMP|x64.ActiveCfg = Release Library OpenMP|x64
 		{84BE2D91-F071-4151-BE12-61460464C494}.Release Library OpenMP|x64.Build.0 = Release Library OpenMP|x64
 		{84BE2D91-F071-4151-BE12-61460464C494}.Release Library OpenMP|x86.ActiveCfg = Release Library OpenMP|Win32
@@ -48,5 +60,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {820D40E2-2A3F-4A0F-B9C8-109E71D2EAE2}
 	EndGlobalSection
 EndGlobal

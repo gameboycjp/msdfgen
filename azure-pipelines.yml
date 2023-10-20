@@ -1,0 +1,51 @@
+trigger:
+- neos-release
+
+strategy:
+  matrix:
+    android:
+      imageName: 'ubuntu-latest'
+      sourceFolder: 'build/out/'
+      sourceFile: 'libmsdfgen.so'
+      targetFile: 'libmsdfgen.so'
+      cmakeArgs: -DCMAKE_SYSTEM_NAME=Android -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+      artifactName: 'android_ARMv7'
+    linux:
+      imageName: 'ubuntu-latest'
+      sourceFolder: 'build/out/'
+      sourceFile: 'libmsdfgen.so'
+      targetFile: 'libmsdfgen.so'
+      artifactName: 'linux_x64'
+    windows:
+      imageName: 'windows-latest'
+      sourceFolder: 'build/out/Release'
+      sourceFile: 'msdfgen.dll'
+      targetFile: 'msdfgen.dll'
+      cmakeArgs: -DMSVC_VERSION=1927
+      artifactName: 'windows_x64'
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+- task: CMake@1
+  inputs:
+    workingDirectory: 
+    cmakeArgs: '-B build $(cmakeArgs) -DCMAKE_BUILD_TYPE=Release -DMSDFGEN_BUILD_SHARED_LIBRARY=ON -DMSDFGEN_BUILD_STANDALONE=OFF -DMSDFGEN_USE_FREETYPE=OFF -DMSDFGEN_INSTALL=OFF -S .'
+
+- task: CMake@1
+  inputs:
+    workingDirectory: 
+    cmakeArgs: '--build build --config Release'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(sourceFolder)'
+    Contents: '$(sourceFile)'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: '$(artifactName)'
+    publishLocation: 'Container'
