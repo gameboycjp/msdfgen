@@ -62,7 +62,7 @@ jobs:
         -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-        -DFREETYPE_LIBRARY=${{ github.workspace }}/afreetype.dll
+        -DFREETYPE_LIBRARY=${{ github.workspace }}/freetype.lib
         -DFREETYPE_INCLUDE_DIRS=${{ github.workspace }}/freetype2include/
         -S ${{ github.workspace }}
 
